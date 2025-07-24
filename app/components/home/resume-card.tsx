@@ -1,7 +1,7 @@
+import ScoreCircle from '@/components/home/ui/score-circle'
 import { usePuterStore } from '@/lib/client/puter'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
-import ScoreCircle from '../icons/score-circle'
 
 const ResumeCard = ({ resume }: { resume: Resume }) => {
   // STATE
