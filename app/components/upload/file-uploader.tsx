@@ -55,19 +55,18 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
                   handleRemoveFile()
                 }}
               >
-                <img src='/cross.svg' alt='remove' className='size-4' />
+                <img src='/cross.svg' alt='eliminar' className='size-4' />
               </button>
             </div>
           ) : (
             <div>
               <div className='mx-auto size-16 flex justify-center items-center'>
-                <img src='/info.svg' alt='upload' className='size-20' />
+                <img src='/info.svg' alt='subir' className='size-20' />
               </div>
               <p className='text-lg text-dark-200'>
-                <span className='font-semibold'>Click to Upload </span>
-                or Drag and drop
+                <span className='font-semibold'>Haz clic para Subir </span>o Arrastra y suelta
               </p>
-              <p className='text-sm text-gray-700'>PDF (max 20MB)</p>
+              <p className='text-sm text-gray-700'>PDF (máx 20MB)</p>
             </div>
           )}
         </div>
