@@ -33,7 +33,7 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
   }
 
   return (
-    <div className='w-full gradient-border'>
+    <div className='w-full bg-light-green rounded-2xl p-5 border-2 border-white'>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
         <div className='space-y-4 cursor-pointer'>
@@ -42,15 +42,15 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
               <img src='/pdf.png' alt='pdf' className='size-10' />
               <div className='flex items-center space-x-3'>
                 <div>
-                  <p className='text-xs font-medium text-gray-700 truncate max-w--xs'>
+                  <p className='text-xs font-medium text-dark-200 truncate max-w--xs'>
                     {formattedFile.name}
                   </p>
-                  <p className='text-sm text-gray-500'>{formattedFileSize}</p>
+                  <p className='text-sm text-gray-700'>{formattedFileSize}</p>
                 </div>
               </div>
               <button
                 type='button'
-                className='p-2 cursor-pointer'
+                className='p-1.5 cursor-pointer bg-light-green rounded-full'
                 onClick={() => {
                   handleRemoveFile()
                 }}
@@ -63,11 +63,11 @@ const FileUploader = ({ onFileSelect }: FileUploaderProps) => {
               <div className='mx-auto size-16 flex justify-center items-center'>
                 <img src='/info.svg' alt='upload' className='size-20' />
               </div>
-              <p className='text-lg text-gray-500'>
-                <span className='font-semibold'>Click to Upload</span>
+              <p className='text-lg text-dark-200'>
+                <span className='font-semibold'>Click to Upload </span>
                 or Drag and drop
               </p>
-              <p className='text-sm text-gray-400'>PDF (max 20MB)</p>
+              <p className='text-sm text-gray-700'>PDF (max 20MB)</p>
             </div>
           )}
         </div>
