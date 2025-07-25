@@ -57,7 +57,7 @@ const ResumeList = () => {
   }
 
   return (
-    <section id='resume-list' className='resumes-section my-8'>
+    <section id='resume-list' className='resumes-section my-8 px-4'>
       {!isLoading &&
         resumes?.length > 0 &&
         resumes.map((resume) => <ResumeCard resume={resume} key={resume.id} />)}
