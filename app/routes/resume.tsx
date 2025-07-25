@@ -1,8 +1,9 @@
 import ATSScore from '@/components/resume/ats-score'
+import ChatBot from '@/components/resume/chat/chat-bot'
 import Details from '@/components/resume/details'
 import ResumeNavbar from '@/components/resume/layout/navbar'
 import Summary from '@/components/resume/summary/index'
-import { usePuterStore } from '@/lib/client/puter'
+import { usePuterStore, usePutterAuthStore } from '@/lib/client/puter'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
@@ -16,12 +17,14 @@ export function meta() {
 export default function resume() {
   // STORE
   const { id } = useParams()
-  const { auth, isLoading, fs, kv } = usePuterStore()
+  const { isLoading, fs, kv } = usePuterStore()
+  const { auth } = usePutterAuthStore()
 
   // STATE
   const [resumeUrl, setResumeUrl] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [feedback, setFeedback] = useState<Feedback | null>(null)
+  const [resumeData, setResumeData] = useState<Resume | null>(null)
 
   // CONST
   const navigate = useNavigate()
@@ -39,6 +42,8 @@ export default function resume() {
       if (!resume) return
 
       const data = JSON.parse(resume)
+      setResumeData(data)
+
       const resumeBlob = await fs.read(data.resumePath)
       if (!resumeBlob) return
 
@@ -53,12 +58,6 @@ export default function resume() {
       setImageUrl(imageUrl)
 
       setFeedback(data.feedback)
-
-      console.log({
-        resumeUrl,
-        imageUrl,
-        feedback: data.feedback,
-      })
     }
 
     loadResume()
@@ -68,16 +67,23 @@ export default function resume() {
     <main className='!pt-0'>
       <ResumeNavbar />
       <div className='flex flex-row w-full max-lg:flex-col-reverse'>
-        <section className='feedback-section bg-gradient h-screen sticky top-0 flex justify-center items-center'>
-          {imageUrl && resumeUrl && (
-            <div className=' animate-in fade-in duration-1000 gradient-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit '>
-              <a href={resumeUrl} target='_blank' rel='noopener noreferrer'>
-                <img src={imageUrl} alt='resume' className='size-full object-contain rounded-2xl' />
-              </a>
-            </div>
-          )}
+        <section className='feedback-section bg-light-green h-screen sticky top-0 flex justify-center items-center'>
+          <div className='size-full relative flex justify-center items-center pt-3 md:pt-0'>
+            {imageUrl && resumeUrl && (
+              <div className='animate-in fade-in duration-1000 bg-light-purple rounded-2xl p-5 pt-12 shadow-md max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit hover:shadow-xl'>
+                <a href={resumeUrl} target='_blank' rel='noopener noreferrer'>
+                  <img
+                    src={imageUrl}
+                    alt='resume'
+                    className='size-full object-contain rounded-2xl'
+                  />
+                </a>
+              </div>
+            )}
+            {feedback && resumeData && <ChatBot resumeData={resumeData} />}
+          </div>
         </section>
-        <section className='feedback-section'>
+        <section className='feedback-section bg-white-200'>
           <h2 className='text-4xl text-black font-bold'>Resume Review</h2>
           {feedback ? (
             <div className='flex flex-col gap-8 animate-in fade-in duration-1000'>

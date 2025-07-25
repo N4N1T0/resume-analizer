@@ -37,20 +37,22 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
   ]
 
   return (
-    <div className='flex flex-col gap-4 w-full'>
-      <Accordion>
-        {CATEGORIES.map((category) => (
-          <AccordionItem key={category.id} id={category.id}>
-            <AccordionHeader itemId={category.id}>
-              <CategoryHeader title={category.title} categoryScore={category.score} />
-            </AccordionHeader>
-            <AccordionContent itemId={category.id}>
-              <CategoryContent tips={category.tips} />
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
+    <Accordion>
+      {CATEGORIES.map((category) => (
+        <AccordionItem
+          key={category.id}
+          id={category.id}
+          className='bg-white rounded-t-2xl rounded-b-sm shadow-xs'
+        >
+          <AccordionHeader itemId={category.id} className='hover:bg-light-green rounded-t-2xl'>
+            <CategoryHeader title={category.title} categoryScore={category.score} />
+          </AccordionHeader>
+          <AccordionContent itemId={category.id} className='bg-light-green'>
+            <CategoryContent tips={category.tips} />
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
   )
 }
 
