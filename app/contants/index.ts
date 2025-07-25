@@ -49,30 +49,30 @@ export const prepareInstructions = ({
   jobTitle: string
   jobDescription: string
 }) =>
-  `You are an expert in ATS (Applicant Tracking System) and resume analysis.
-    Please analyze and rate this resume and suggest how to improve it.
-    The rating can be low if the resume is bad.
-    Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
-    If there is a lot to improve, don't hesitate to give low scores. This is to help the user to improve their resume.
-    If available, use the job description for the job user is applying to to give more detailed feedback.
-    If provided, take the job description into consideration.
-    The job title is: ${jobTitle}
-    The job description is: ${jobDescription}
-    Provide the feedback using the following format:
+  `Eres un experto en ATS (Sistema de Seguimiento de Candidatos) y análisis de currículums.
+    Por favor analiza y califica este currículum y sugiere cómo mejorarlo.
+    La calificación puede ser baja si el currículum es malo.
+    Sé minucioso y detallado. No tengas miedo de señalar errores o áreas de mejora.
+    Si hay mucho que mejorar, no dudes en dar puntuaciones bajas. Esto es para ayudar al usuario a mejorar su currículum.
+    Si está disponible, usa la descripción del trabajo al que el usuario está aplicando para dar retroalimentación más detallada.
+    Si se proporciona, toma en consideración la descripción del trabajo.
+    El título del trabajo es: ${jobTitle}
+    La descripción del trabajo es: ${jobDescription}
+    Proporciona la retroalimentación usando el siguiente formato:
     ${AIResponseFormat}
-    Return the analysis as an JSON object, without any other text and without the backticks.
-    Do not include any other text or comments.`
+    Devuelve el análisis como un objeto JSON, sin ningún otro texto y sin las comillas invertidas.
+    No incluyas ningún otro texto o comentarios.`
 
 export const prepareChatContext = (resumeData: Resume | undefined, inputValue: string) => `
 
-        Resume Feedback Context:
+        Contexto de Retroalimentación del Currículum:
       ${JSON.stringify(resumeData?.feedback, null, 2)}
 
-        Resume Details:
-        Company: ${resumeData?.companyName || 'N/A'}
-        Job Title: ${resumeData?.jobTitle || 'N/A'}
-        Job Description: ${resumeData?.jobDescription || 'N/A'}
+        Detalles del Currículum:
+        Empresa: ${resumeData?.companyName || 'N/A'}
+        Título del Trabajo: ${resumeData?.jobTitle || 'N/A'}
+        Descripción del Trabajo: ${resumeData?.jobDescription || 'N/A'}
 
-        User Question: ${inputValue}
+        Pregunta del Usuario: ${inputValue}
 
-        Please provide helpful advice about the resume feedback and suggestions for improvement. Keep responses concise and actionable.`
+        Por favor proporciona consejos útiles sobre la retroalimentación del currículum y sugerencias para mejorarlo. Mantén las respuestas concisas y accionables.`
