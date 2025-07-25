@@ -12,25 +12,25 @@ const Details = ({ feedback }: { feedback: Feedback }) => {
   const CATEGORIES: CategoryConfig[] = [
     {
       id: 'tone-style',
-      title: 'Tone & Style',
+      title: 'Tono y Estilo',
       score: feedback.toneAndStyle.score,
       tips: feedback.toneAndStyle.tips,
     },
     {
       id: 'content',
-      title: 'Content',
+      title: 'Contenido',
       score: feedback.content.score,
       tips: feedback.content.tips,
     },
     {
       id: 'structure',
-      title: 'Structure',
+      title: 'Estructura',
       score: feedback.structure.score,
       tips: feedback.structure.tips,
     },
     {
       id: 'skills',
-      title: 'Skills',
+      title: 'Habilidades',
       score: feedback.skills.score,
       tips: feedback.skills.tips,
     },
