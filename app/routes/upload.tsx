@@ -1,10 +1,11 @@
 import Navbar from '@/components/layout/navbar'
 import FileUploader from '@/components/upload/file-uploader'
 import { prepareInstructions } from '@/contants'
-import { usePuterStore } from '@/lib/client/puter'
+import { usePuterStore, usePutterAuthStore } from '@/lib/client/puter'
 import { convertPdfToImage } from '@/lib/pdf-to-img'
+import { type UploadFormData, validateUploadForm } from '@/lib/schemas'
 import { generateUUID } from '@/lib/utils'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 export const meta = () => {
@@ -17,10 +18,19 @@ export const meta = () => {
 export default function Upload() {
   // STATE
   const { fs, kv, ai } = usePuterStore()
+  const { auth } = usePutterAuthStore()
   const [isProcessing, setIsProcessing] = useState<boolean>(false)
   const [staticText, setStaticText] = useState<string>('')
   const [file, setFile] = useState<File | null>(null)
+  const [formErrors, setFormErrors] = useState<string[]>([])
   const navigate = useNavigate()
+
+  // EFFECT
+  useEffect(() => {
+    if (!auth.isAuthenticated) {
+      navigate('/auth?next=/upload')
+    }
+  }, [auth.isAuthenticated])
 
   // HANDLER
   const handleAnalize = async ({ file, companyName, jobTitle, jobDescription }: AnalizeParams) => {
@@ -41,7 +51,8 @@ export default function Upload() {
     if (!uploadedImage) return setStaticText('Failed to upload image')
     setStaticText('Preparing Data...')
 
-    const uuid = generateUUID()
+    const userId = auth?.user?.uuid || generateUUID()
+    const uuid = `${userId}:${generateUUID()}`
 
     const data = {
       id: uuid,
@@ -71,7 +82,6 @@ export default function Upload() {
     data.feedback = JSON.parse(feedbackText)
     await kv.set(`resume:${uuid}`, JSON.stringify(data))
     setStaticText('Analysis complete, redirecting...')
-    console.log(data)
     navigate(`/resume/${uuid}`)
   }
 
@@ -85,19 +95,26 @@ export default function Upload() {
 
     const formData = new FormData(form)
 
-    const companyName = formData.get('company-name') as string
-    const jobTitle = formData.get('job-title') as string
-    const jobDescription = formData.get('job-description') as string
+    const uploadData: UploadFormData = {
+      companyName: formData.get('company-name') as string,
+      jobTitle: formData.get('job-title') as string,
+      jobDescription: formData.get('job-description') as string,
+      file,
+    }
 
-    if (!file || !companyName || !jobTitle || !jobDescription) {
+    const validation = validateUploadForm(uploadData)
+
+    if (!validation.isValid) {
+      setFormErrors(validation.errors)
       return
     }
 
+    setFormErrors([])
     handleAnalize({
-      file,
-      companyName,
-      jobTitle,
-      jobDescription,
+      file: uploadData.file!,
+      companyName: uploadData.companyName,
+      jobTitle: uploadData.jobTitle,
+      jobDescription: uploadData.jobDescription,
     })
   }
 
@@ -106,7 +123,7 @@ export default function Upload() {
   }
 
   return (
-    <main className='bg-gradient'>
+    <main className='bg-white-200'>
       <Navbar />
       <section className='main-section'>
         <div className='page-heading py-8'>
@@ -124,8 +141,18 @@ export default function Upload() {
           <form
             id='upload-form'
             onSubmit={handleSubmit}
-            className='flex flex-col gap-4 mt-6 max-w-3xl'
+            className='flex flex-col gap-4 mt-6 max-w-3xl px-3'
           >
+            {formErrors.length > 0 && (
+              <div className='bg-red-50 border border-red-200 rounded-lg p-4'>
+                <h3 className='text-red-800 font-medium mb-2'>Please fix the following errors:</h3>
+                <ul className='text-red-700 text-sm space-y-1'>
+                  {formErrors.map((error, index) => (
+                    <li key={index}>• {error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className='form-div'>
               <label htmlFor='company-name'>Company Name</label>
               <input

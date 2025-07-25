@@ -1,10 +1,11 @@
-import { usePuterStore } from '@/lib/client/puter'
+import { usePuterStore, usePutterAuthStore } from '@/lib/client/puter'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 const WipeApp = () => {
   // STATE
-  const { auth, isLoading, error, fs, kv } = usePuterStore()
+  const { isLoading, error, fs, kv } = usePuterStore()
+  const { auth } = usePutterAuthStore()
   const navigate = useNavigate()
   const [files, setFiles] = useState<FSItem[]>([])
 
@@ -20,10 +21,12 @@ const WipeApp = () => {
   }, [])
 
   useEffect(() => {
-    if (!isLoading && !auth.isAuthenticated) {
-      navigate('/auth?next=/wipe')
+    if (!isLoading) {
+      if (auth?.user?.uuid !== import.meta.env.ADMIN) {
+        navigate('/')
+      }
     }
-  }, [isLoading])
+  }, [isLoading, auth.isAuthenticated, auth?.user?.uuid, navigate])
 
   // HANDLE
   const handleDelete = async () => {

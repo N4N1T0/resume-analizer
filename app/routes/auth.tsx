@@ -1,4 +1,4 @@
-import { usePuterStore } from '@/lib/client/puter'
+import { usePuterStore, usePutterAuthStore } from '@/lib/client/puter'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
@@ -11,8 +11,8 @@ export const meta = () => {
 
 export default function auth() {
   // STORE
-  const { isLoading, auth } = usePuterStore()
-  console.log('🚀 ~ auth ~ auth:', auth)
+  const { isLoading } = usePuterStore()
+  const { auth } = usePutterAuthStore()
 
   // CONST
   const location = useLocation()
@@ -27,24 +27,26 @@ export default function auth() {
   }, [auth.isAuthenticated])
 
   return (
-    <main className='bg-gradient min-h-screen flex justify-center items-center'>
-      <div className='gradient-border'>
-        <section className='flex flex-col gap-8 bg-white rounded-2xl p-10'>
+    <main className='bg-white-200 min-h-screen flex justify-center items-center'>
+      <div className='bg-white rounded-2xl p-5'>
+        <section className='flex flex-col gap-8 bg-light-green rounded-2xl p-10'>
           <div className='flex flex-col items-center justify-center gap-2'>
             <h1>Welcome</h1>
             <h2>Log In to continue your Job Journey</h2>
           </div>
           <div>
             {isLoading ? (
-              <button className='ath-button animate-pulse'>Signing you in...</button>
+              <button className='primary-btn animate-pulse pointer-events-none'>
+                Signing you in...
+              </button>
             ) : (
               <>
                 {auth.isAuthenticated ? (
-                  <button className='auth-btn' onClick={() => auth.signOut()}>
+                  <button className='primary-btn text-2xl' onClick={() => auth.signOut()}>
                     Log Out
                   </button>
                 ) : (
-                  <button className='auth-btn' onClick={() => auth.signIn()}>
+                  <button className='primary-btn text-2xl' onClick={() => auth.signIn()}>
                     Sign In
                   </button>
                 )}
