@@ -1,23 +1,18 @@
 # TODOS
 
-- [ ] Add OAUTH logic
+- [x] Add OAUTH logic
+- [x] Change Color Scheme
+- [x] Add Vainilla Schema Validation
+- [x] Add Zustand persistence
 - [ ] Add React performance
-- [ ] Change Color Scheme
-- [ ] Add Vainilla Schema Validation
 - [ ] Change Content to Spanish
-- [ ] Organize Assets
 
 ## UI
 
-- [ ] Add Shadow to Resume Card & Hover Effect
-- [ ] Add Delete Button to Resume Card
-- [ ] Animations to the Loader
-- [ ] Add Github Icon to Navbar
+- [x] Add Shadow to Resume Card & Hover Effect
+- [x] Add Delete Button to Resume Card
+- [x] Add Github Icon to Navbar
 
 ## EXTRA
 
 - [ ] Add Chat
-
-## THINK
-
-- Extra feature 3
