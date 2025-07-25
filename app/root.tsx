@@ -18,7 +18,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='es'>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -40,14 +40,16 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = 'Oops!'
-  let details = 'An unexpected error occurred.'
+  let message = '¡Ups!'
+  let details = 'Ha ocurrido un error inesperado.'
   let stack: string | undefined
 
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? '404' : 'Error'
     details =
-      error.status === 404 ? 'The requested page could not be found.' : error.statusText || details
+      error.status === 404
+        ? 'No se pudo encontrar la página solicitada.'
+        : error.statusText || details
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message
     stack = error.stack
@@ -58,7 +60,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <h1>{message}</h1>
       <p>{details}</p>
       <button onClick={() => (window.location.href = '/')} className='primary-btn w-fit mt-3 px-5'>
-        Go to Home
+        Ir al Inicio
       </button>
       {stack && (
         <pre className='w-full p-4 overflow-x-auto'>
