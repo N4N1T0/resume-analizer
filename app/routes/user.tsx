@@ -7,8 +7,8 @@ export default function User() {
       <Navbar />
       <section className='main-section'>
         <div className='page-heading py-8'>
-          <h1>Track Your Application & Resume Rating</h1>
-          <h2>Review your application and Check AI-Powered Feedback</h2>
+          <h1>Rastrea tu Aplicación y Calificación del Currículum</h1>
+          <h2>Revisa tu aplicación y verifica la retroalimentación con IA</h2>
         </div>
 
         <ResumeList />

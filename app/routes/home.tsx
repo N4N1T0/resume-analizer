@@ -6,8 +6,8 @@ import Navbar from '@/components/layout/navbar'
 
 export function meta() {
   return [
-    { title: 'Resume Analyzer' },
-    { name: 'description', content: 'AI powered resume analyzer for you to get your dream job' },
+    { title: 'Analizador de Currículum' },
+    { name: 'description', content: 'Analizador de currículum con IA para conseguir el trabajo de tus sueños' },
   ]
 }
 

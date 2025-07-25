@@ -9,8 +9,8 @@ import { useNavigate, useParams } from 'react-router'
 
 export function meta() {
   return [
-    { title: 'Resume Details' },
-    { name: 'description', content: 'View detailed information about a specific resume' },
+    { title: 'Detalles del Currículum' },
+    { name: 'description', content: 'Ver información detallada sobre un currículum específico' },
   ]
 }
 
@@ -84,7 +84,7 @@ export default function resume() {
           </div>
         </section>
         <section className='feedback-section bg-white-200'>
-          <h2 className='text-4xl text-black font-bold'>Resume Review</h2>
+          <h2 className='text-4xl text-black font-bold'>Revisión del Currículum</h2>
           {feedback ? (
             <div className='flex flex-col gap-8 animate-in fade-in duration-1000'>
               <Summary feedback={feedback} />
@@ -92,7 +92,7 @@ export default function resume() {
               <Details feedback={feedback} />
             </div>
           ) : (
-            <img src='/resume-scan-2.gif' alt='Resume Scan' />
+            <img src='/resume-scan-2.gif' alt='Escaneo de Currículum' />
           )}
         </section>
       </div>

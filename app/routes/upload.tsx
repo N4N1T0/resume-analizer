@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router'
 
 export const meta = () => {
   return [
-    { title: 'Upload | Resume Analyzer' },
-    { name: 'description', content: 'AI powered resume analyzer for you to get your dream job' },
+    { title: 'Subir | Analizador de Currículum' },
+    { name: 'description', content: 'Analizador de currículum con IA para conseguir el trabajo de tus sueños' },
   ]
 }
 
@@ -36,20 +36,20 @@ export default function Upload() {
   const handleAnalize = async ({ file, companyName, jobTitle, jobDescription }: AnalizeParams) => {
     setIsProcessing(true)
 
-    setStaticText('Unloading the file...')
+    setStaticText('Cargando el archivo...')
     const uploadedFile = await fs.upload([file])
 
-    if (!uploadedFile) return setStaticText('Failed to upload file')
-    setStaticText('Converting to Image')
+    if (!uploadedFile) return setStaticText('Error al cargar el archivo')
+    setStaticText('Convirtiendo a imagen')
 
     const imageFile = await convertPdfToImage(file)
-    if (!imageFile.file) return setStaticText('Failed to convert to image')
+    if (!imageFile.file) return setStaticText('Error al convertir a imagen')
 
-    setStaticText('Uploading image...')
+    setStaticText('Subiendo imagen...')
     const uploadedImage = await fs.upload([imageFile.file])
 
-    if (!uploadedImage) return setStaticText('Failed to upload image')
-    setStaticText('Preparing Data...')
+    if (!uploadedImage) return setStaticText('Error al subir imagen')
+    setStaticText('Preparando datos...')
 
     const userId = auth?.user?.uuid || generateUUID()
     const uuid = `${userId}:${generateUUID()}`
@@ -65,14 +65,14 @@ export default function Upload() {
     }
 
     await kv.set(`resume:${uuid}`, JSON.stringify(data))
-    setStaticText('Analyzing...')
+    setStaticText('Analizando...')
 
     const feedback = await ai.feedback(
       uploadedFile.path,
       prepareInstructions({ jobTitle, jobDescription }),
     )
 
-    if (!feedback) return setStaticText('Error: Failed to analyze resume')
+    if (!feedback) return setStaticText('Error: No se pudo analizar el currículum')
 
     const feedbackText =
       typeof feedback.message.content === 'string'
@@ -81,7 +81,7 @@ export default function Upload() {
 
     data.feedback = JSON.parse(feedbackText)
     await kv.set(`resume:${uuid}`, JSON.stringify(data))
-    setStaticText('Analysis complete, redirecting...')
+    setStaticText('Análisis completo, redirigiendo...')
     navigate(`/resume/${uuid}`)
   }
 
@@ -127,14 +127,14 @@ export default function Upload() {
       <Navbar />
       <section className='main-section'>
         <div className='page-heading py-8'>
-          <h1 className='text-balance'>Smart feedback for your dream job</h1>
+          <h1 className='text-balance'>Retroalimentación inteligente para el trabajo de tus sueños</h1>
           {isProcessing ? (
             <>
               <h2>{staticText}</h2>
               <img src='/resume-scan.gif' alt='resume scan' className='w-full' />
             </>
           ) : (
-            <h2>Drop your resume for an ATS score and improvement tips</h2>
+            <h2>Sube tu currículum para obtener una puntuación ATS y consejos de mejora</h2>
           )}
         </div>
         {!isProcessing && (
@@ -145,7 +145,7 @@ export default function Upload() {
           >
             {formErrors.length > 0 && (
               <div className='bg-red-50 border border-red-200 rounded-lg p-4'>
-                <h3 className='text-red-800 font-medium mb-2'>Please fix the following errors:</h3>
+                <h3 className='text-red-800 font-medium mb-2'>Por favor corrige los siguientes errores:</h3>
                 <ul className='text-red-700 text-sm space-y-1'>
                   {formErrors.map((error, index) => (
                     <li key={index}>• {error}</li>
@@ -154,34 +154,34 @@ export default function Upload() {
               </div>
             )}
             <div className='form-div'>
-              <label htmlFor='company-name'>Company Name</label>
+              <label htmlFor='company-name'>Nombre de la Empresa</label>
               <input
                 type='text'
                 name='company-name'
                 id='company-name'
-                placeholder='Enter company name'
+                placeholder='Ingresa el nombre de la empresa'
               />
             </div>
             <div className='form-div'>
-              <label htmlFor='job-title'>Job Title</label>
-              <input type='text' name='job-title' id='job-title' placeholder='Enter job title' />
+              <label htmlFor='job-title'>Título del Trabajo</label>
+              <input type='text' name='job-title' id='job-title' placeholder='Ingresa el título del trabajo' />
             </div>
             <div className='form-div'>
-              <label htmlFor='job-description'>Job Description</label>
+              <label htmlFor='job-description'>Descripción del Trabajo</label>
               <textarea
                 rows={5}
                 name='job-description'
                 id='job-description'
-                placeholder='Enter job description'
+                placeholder='Ingresa la descripción del trabajo'
               />
             </div>
             <div className='form-div'>
-              <label htmlFor='uploader'>Upload Resume</label>
+              <label htmlFor='uploader'>Subir Currículum</label>
               <FileUploader onFileSelect={handleFileSelect} />
             </div>
 
             <button className='primary-btn' type='submit'>
-              Analyze Resume
+              Analizar Currículum
             </button>
           </form>
         )}

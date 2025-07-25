@@ -4,8 +4,8 @@ import { useLocation, useNavigate } from 'react-router'
 
 export const meta = () => {
   return [
-    { title: 'Auth | Resume Analyzer' },
-    { name: 'description', content: 'AI powered resume analyzer for you to get your dream job' },
+    { title: 'Autenticación | Analizador de Currículum' },
+    { name: 'description', content: 'Analizador de currículum con IA para conseguir el trabajo de tus sueños' },
   ]
 }
 
@@ -31,23 +31,23 @@ export default function auth() {
       <div className='bg-white rounded-2xl p-5'>
         <section className='flex flex-col gap-8 bg-light-green rounded-2xl p-10'>
           <div className='flex flex-col items-center justify-center gap-2'>
-            <h1>Welcome</h1>
-            <h2>Log In to continue your Job Journey</h2>
+            <h1>Bienvenido</h1>
+            <h2>Inicia sesión para continuar tu búsqueda laboral</h2>
           </div>
           <div>
             {isLoading ? (
               <button className='primary-btn animate-pulse pointer-events-none'>
-                Signing you in...
+                Iniciando sesión...
               </button>
             ) : (
               <>
                 {auth.isAuthenticated ? (
                   <button className='primary-btn text-2xl' onClick={() => auth.signOut()}>
-                    Log Out
+                    Cerrar Sesión
                   </button>
                 ) : (
                   <button className='primary-btn text-2xl' onClick={() => auth.signIn()}>
-                    Sign In
+                    Iniciar Sesión
                   </button>
                 )}
               </>
