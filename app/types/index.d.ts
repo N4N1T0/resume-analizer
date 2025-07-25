@@ -5,6 +5,24 @@ interface Resume {
   imagePath: string
   resumePath: string
   feedback: Feedback
+  jobDescription: string
+}
+
+interface Message {
+  id: string
+  role: 'user' | 'assistant'
+  content: string
+  timestamp: Date
+}
+
+interface ChatBotProps {
+  resumeData?: Resume
+}
+
+interface ContextSuggestion {
+  key: string
+  label: string
+  value: string
 }
 
 interface AnalizeParams {
