@@ -77,7 +77,9 @@ export function Accordion({
 }
 
 export function AccordionItem({ children, className = '' }: AccordionItemProps) {
-  return <div className={cn('overflow-hidden border-b border-gray-200', className)}>{children}</div>
+  return (
+    <div className={cn('overflow-hidden border-b border-light-purple', className)}>{children}</div>
+  )
 }
 
 export function AccordionHeader({
@@ -92,11 +94,11 @@ export function AccordionHeader({
 
   const defaultIcon = (
     <svg
-      className={cn('w-5 h-5 transition-transform duration-200', {
+      className={cn('size-5 transition-transform duration-200', {
         'rotate-180': isActive,
       })}
       fill='none'
-      stroke='#98A2B3'
+      stroke='#b3a1ff'
       viewBox='0 0 24 24'
       xmlns='http://www.w3.org/2000/svg'
     >
@@ -116,6 +118,7 @@ export function AccordionHeader({
         'focus:outline-none',
         'transition-colors duration-200 flex items-center justify-between cursor-pointer',
         className,
+        isActive && 'bg-light-green',
       )}
     >
       <div className='flex items-center space-x-3'>

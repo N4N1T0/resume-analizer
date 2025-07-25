@@ -12,8 +12,8 @@ const SummaryCategory = ({ title, score }: SummaryCategoryProps) => {
   return (
     <div className='resume-summary'>
       <div className='category'>
-        <div className='flex flex-row gap-2 items-center justify-center'>
-          <p className='text-2xl font-medium'>{title}</p>
+        <div className='flex flex-col md:flex-row gap-0 md:gap-2 items-start md:items-center justify-center'>
+          <p className='text-xl md:text-2xl font-medium'>{title}</p>
           <ScoreBadge score={score} />
         </div>
         <p className='text-2xl'>

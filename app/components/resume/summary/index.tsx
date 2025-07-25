@@ -15,7 +15,7 @@ const Summary = ({ feedback }: SummaryProps) => {
 
   return (
     <article className='bg-white rounded-2xl shadow-md w-full'>
-      <header className='flex flex-row items-center p-6 gap-8 border-b border-gray-100'>
+      <header className='flex md:flex-row flex-col items-center p-6 gap-8 border-b border-light-purple'>
         <ScoreGauge score={feedback.overallScore} />
 
         <div className='flex flex-col gap-3'>
