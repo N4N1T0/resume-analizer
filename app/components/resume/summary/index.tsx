@@ -7,10 +7,10 @@ interface SummaryProps {
 
 const Summary = ({ feedback }: SummaryProps) => {
   const CATEGORIES = [
-    { title: 'Tone & Style', score: feedback.toneAndStyle.score },
-    { title: 'Content', score: feedback.content.score },
-    { title: 'Structure', score: feedback.structure.score },
-    { title: 'Skills', score: feedback.skills.score },
+    { title: 'Tono y Estilo', score: feedback.toneAndStyle.score },
+    { title: 'Contenido', score: feedback.content.score },
+    { title: 'Estructura', score: feedback.structure.score },
+    { title: 'Habilidades', score: feedback.skills.score },
   ]
 
   return (
@@ -19,10 +19,10 @@ const Summary = ({ feedback }: SummaryProps) => {
         <ScoreGauge score={feedback.overallScore} />
 
         <div className='flex flex-col gap-3'>
-          <h2 className='text-2xl font-bold text-gray-900'>Your Resume Score</h2>
+          <h2 className='text-2xl font-bold text-gray-900'>Puntuación de tu Currículum</h2>
           <p className='text-sm text-gray-600 leading-relaxed max-w-prose'>
-            This score is based on the analysis of your resume. It ranges from 0 to 100, with higher
-            scores indicating better quality and employability potential.
+            Esta puntuación se basa en el análisis de tu currículum. Va de 0 a 100, donde las
+            puntuaciones más altas indican mejor calidad y potencial de empleabilidad.
           </p>
         </div>
       </header>
