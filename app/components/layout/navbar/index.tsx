@@ -13,15 +13,15 @@ const Navbar = () => {
       <div className='flex gap-3 justify-center items-center'>
         {auth.user && (
           <Link to='/user' className='primary-btn w-fit'>
-            <span className='hidden md:inline'>Show</span> My Resumes
+            <span className='hidden md:inline'>Ver</span> Mis CV
           </Link>
         )}
         <Link to='/upload' className='primary-btn w-fit'>
-          Upload <span className='hidden md:inline'>Resume</span>
+          Subir <span className='hidden md:inline'>CV</span>
         </Link>
         {auth.user && auth.user?.uuid === import.meta.env.ADMIN && (
           <Link to='/wipe' className='primary-btn w-fit'>
-            Wipe <span className='hidden md:inline'>Database</span>
+            Limpiar <span className='hidden md:inline'>Base de Datos</span>
           </Link>
         )}
         <a
