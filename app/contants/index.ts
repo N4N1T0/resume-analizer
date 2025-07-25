@@ -62,3 +62,17 @@ export const prepareInstructions = ({
     ${AIResponseFormat}
     Return the analysis as an JSON object, without any other text and without the backticks.
     Do not include any other text or comments.`
+
+export const prepareChatContext = (resumeData: Resume | undefined, inputValue: string) => `
+
+        Resume Feedback Context:
+      ${JSON.stringify(resumeData?.feedback, null, 2)}
+
+        Resume Details:
+        Company: ${resumeData?.companyName || 'N/A'}
+        Job Title: ${resumeData?.jobTitle || 'N/A'}
+        Job Description: ${resumeData?.jobDescription || 'N/A'}
+
+        User Question: ${inputValue}
+
+        Please provide helpful advice about the resume feedback and suggestions for improvement. Keep responses concise and actionable.`
