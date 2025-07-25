@@ -54,9 +54,12 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className='pt-16 p-4 container mx-auto'>
+    <main className='pt-16 p-4 container mx-auto bg-white-200'>
       <h1>{message}</h1>
       <p>{details}</p>
+      <button onClick={() => (window.location.href = '/')} className='primary-btn w-fit mt-3 px-5'>
+        Go to Home
+      </button>
       {stack && (
         <pre className='w-full p-4 overflow-x-auto'>
           <code>{stack}</code>
