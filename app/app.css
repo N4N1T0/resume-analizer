@@ -8,10 +8,7 @@
     'Segoe UI Symbol', 'Noto Color Emoji';
   --color-dark-200: #222222;
   --color-white-200: #eef1ee;
-  --color-dark-green: #d4dcd3;
 
-  --color-light-blue-100: #c1d3f81a;
-  --color-light-blue-200: #a7bff14d;
   --color-light-green: #a4f6a3;
   --color-light-purple: #b3a1ff;
 
@@ -22,8 +19,6 @@
   --color-badge-green-text: #254d4a;
   --color-badge-red-text: #752522;
   --color-badge-yellow-text: #73321b;
-
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 html,
@@ -76,9 +71,6 @@ form {
   .back-btn {
     @apply bg-light-green text-dark-200 hover:bg-light-purple border-dark-200 flex flex-row items-center gap-2 rounded-lg px-3 py-2 shadow-sm hover:text-white;
   }
-  .auth-btn {
-    @apply primary-gradient w-[600px] cursor-pointer rounded-full px-8 py-4 text-3xl font-semibold text-white max-md:w-full;
-  }
   .main-section {
     @apply container mx-auto flex flex-col items-center gap-8 pt-12 pb-5;
   }
@@ -88,36 +80,59 @@ form {
   .resumes-section {
     @apply flex w-full max-w-[1850px] flex-wrap items-start justify-evenly gap-6 max-lg:flex-col;
   }
-
   .resume-card {
     @apply bg-light-green flex h-[560px] w-full flex-col gap-8 rounded-2xl p-4 lg:w-[450px] xl:w-[490px];
   }
-
   .resume-card-header {
     @apply flex min-h-[110px] flex-row items-center justify-between gap-2 max-md:items-center max-md:justify-center max-sm:flex-col;
   }
-
   .feedback-section {
     @apply flex w-1/2 flex-col gap-8 px-8 py-6 max-lg:w-full;
   }
-
   .navbar {
     @apply bg-light-green mx-auto flex w-full max-w-[1200px] flex-row items-center justify-between rounded-3xl p-2 px-4 shadow-md md:p-4 md:px-10;
   }
-
   .score-badge {
     @apply flex flex-row items-center justify-center gap-4 rounded-[96px] px-2 py-1;
   }
-
   .form-div {
     @apply flex w-full flex-col items-start gap-2;
   }
-
-  .uplader-drag-area {
-    @apply relative min-h-[208px] cursor-pointer rounded-2xl bg-white p-8 text-center transition-all duration-700;
-  }
   .uploader-selected-file {
     @apply bg-light-purple flex items-center justify-between rounded-2xl p-3;
+  }
+  .cta-section {
+    @apply bg-light-purple py-20;
+  }
+  .cta-container {
+    @apply container mx-auto px-4;
+  }
+  .cta-content {
+    @apply mx-auto flex max-w-4xl flex-col items-center text-center;
+  }
+  .features-section {
+    @apply py-20;
+  }
+  .features-grid {
+    @apply mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3;
+  }
+  .feature-card {
+    @apply bg-light-green rounded-2xl p-8 text-center shadow-sm transition-shadow duration-300 hover:shadow-md;
+  }
+  .feature-icon {
+    @apply mb-6 flex justify-center;
+  }
+  .faq-section {
+    @apply py-20;
+  }
+  .faq-accordion {
+    @apply border-light-purple bg-white-200 space-y-0 overflow-hidden rounded-2xl border;
+  }
+  .faq-question {
+    @apply hover:bg-light-green py-4 transition-colors duration-100;
+  }
+  .faq-answer {
+    @apply bg-light-green;
   }
 }
 
@@ -125,25 +140,8 @@ form {
   background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);
 }
 
-@utility gradient-border {
-  @apply from-light-blue-100 to-light-blue-200 rounded-2xl bg-gradient-to-b p-4;
-}
-
 @utility text-gradient {
   @apply from-light-green via-dark-200 to-light-green bg-gradient-to-r bg-clip-text text-transparent;
-}
-
-@utility gradient-hover {
-  @apply from-light-blue-100 to-light-blue-200 bg-gradient-to-b;
-}
-
-@utility primary-gradient {
-  background: linear-gradient(to bottom, #8e98ff, #606beb);
-  box-shadow: 0px 74px 21px 0px #6678ef00;
-}
-
-@utility primary-gradient-hover {
-  background: linear-gradient(to bottom, #717dff, #4957eb);
 }
 
 @keyframes fadeIn {
@@ -153,48 +151,4 @@ form {
   to {
     opacity: 1;
   }
-}
-
-.cta-section {
-  @apply bg-light-purple py-20;
-}
-
-.cta-container {
-  @apply container mx-auto px-4;
-}
-
-.cta-content {
-  @apply mx-auto flex max-w-4xl flex-col items-center text-center;
-}
-
-.features-section {
-  @apply py-20;
-}
-
-.features-grid {
-  @apply mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3;
-}
-
-.feature-card {
-  @apply bg-light-green rounded-2xl p-8 text-center shadow-sm transition-shadow duration-300 hover:shadow-md;
-}
-
-.feature-icon {
-  @apply mb-6 flex justify-center;
-}
-
-.faq-section {
-  @apply py-20;
-}
-
-.faq-accordion {
-  @apply border-light-purple bg-white-200 space-y-0 overflow-hidden rounded-2xl border;
-}
-
-.faq-question {
-  @apply hover:bg-light-green py-4 transition-colors duration-100;
-}
-
-.faq-answer {
-  @apply bg-light-green;
 }
