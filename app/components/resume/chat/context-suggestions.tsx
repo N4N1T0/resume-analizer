@@ -70,7 +70,7 @@ const ContextSuggestions = ({
 
   return (
     <div className='absolute bottom-full left-0 right-0 mb-2 bg-white border border-light-green rounded-lg shadow-lg max-h-48 overflow-y-auto z-10'>
-      <div className='p-2 text-xs text-dark-200 bg-light-purple'>Resume Context Suggestions</div>
+      <div className='p-2 text-xs text-dark-200 bg-light-purple'>Sugerencias de Contexto del Currículum</div>
       {suggestions.map((suggestion, index) => (
         <button
           key={suggestion.key}

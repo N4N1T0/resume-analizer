@@ -23,7 +23,7 @@ const ChatBot = ({ resumeData }: ChatBotProps) => {
       const initialMessage: Message = {
         id: Date.now().toString(),
         role: 'assistant',
-        content: `Hello! I'm here to help you understand your resume feedback and answer any questions you might have about improving your resume. Your current ATS score is ${feedback?.overallScore || 'N/A'}. What would you like to know?`,
+        content: `¡Hola! Estoy aquí para ayudarte a entender la retroalimentación de tu currículum y responder cualquier pregunta que tengas sobre cómo mejorarlo. Tu puntuación ATS actual es ${feedback?.overallScore || 'N/A'}. ¿Qué te gustaría saber?`,
         timestamp: new Date(),
       }
       setMessages([initialMessage])
@@ -54,7 +54,7 @@ const ChatBot = ({ resumeData }: ChatBotProps) => {
         const assistantContent =
           typeof response.message.content === 'string'
             ? response.message.content
-            : response.message.content[0]?.text || 'Sorry, I could not process your request.'
+            : response.message.content[0]?.text || 'Lo siento, no pude procesar tu solicitud.'
 
         const assistantMessage: Message = {
           id: (Date.now() + 1).toString(),
@@ -70,7 +70,7 @@ const ChatBot = ({ resumeData }: ChatBotProps) => {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again.',
+        content: 'Lo siento, encontré un error. Por favor intenta de nuevo.',
         timestamp: new Date(),
       }
       setMessages((prev) => [...prev, errorMessage])
@@ -85,7 +85,7 @@ const ChatBot = ({ resumeData }: ChatBotProps) => {
         <button
           onClick={() => setIsOpen(true)}
           className='bg-light-purple py-0.5 px-3.5 rounded-full shadow-lg hover:bg-white-200 transition-colors flex justify-center items-center gap-2 text-dark-200'
-          title='Chat about your resume'
+          title='Chatear sobre tu currículum'
         >
           <svg className='size-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
             <path
@@ -95,7 +95,7 @@ const ChatBot = ({ resumeData }: ChatBotProps) => {
               d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a9.863 9.863 0 01-4.906-1.298L3 21l2.298-5.094A9.863 9.863 0 013 12c0-4.418 3.582-8 8-8s8 3.582 8 8z'
             />
           </svg>
-          Ask Me
+Pregúntame
         </button>
       )}
 

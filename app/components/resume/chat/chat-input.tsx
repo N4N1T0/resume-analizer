@@ -23,13 +23,13 @@ const ChatInput = ({ value, onChange, onSend, disabled, resumeData }: ChatInputP
     if (resumeData.feedback) {
       suggestions.push({
         key: 'overall-score',
-        label: 'Overall ATS Score',
+        label: 'Puntuación ATS General',
         value: `${resumeData.feedback.overallScore}/100`,
       })
 
       suggestions.push({
         key: 'ats-score',
-        label: 'ATS Score',
+        label: 'Puntuación ATS',
         value: `${resumeData.feedback.ATS.score}/100`,
       })
 
@@ -40,7 +40,7 @@ const ChatInput = ({ value, onChange, onSend, disabled, resumeData }: ChatInputP
         if (goodTips.length > 0) {
           suggestions.push({
             key: 'ats-strengths',
-            label: 'ATS Strengths',
+            label: 'Fortalezas ATS',
             value: goodTips.map((tip) => tip.tip).join(', '),
           })
         }
@@ -48,7 +48,7 @@ const ChatInput = ({ value, onChange, onSend, disabled, resumeData }: ChatInputP
         if (improveTips.length > 0) {
           suggestions.push({
             key: 'ats-improvements',
-            label: 'ATS Improvements',
+            label: 'Mejoras ATS',
             value: improveTips.map((tip) => tip.tip).join(', '),
           })
         }
@@ -56,25 +56,25 @@ const ChatInput = ({ value, onChange, onSend, disabled, resumeData }: ChatInputP
 
       suggestions.push({
         key: 'content-score',
-        label: 'Content Score',
+        label: 'Puntuación de Contenido',
         value: `${resumeData.feedback.content.score}/100`,
       })
 
       suggestions.push({
         key: 'structure-score',
-        label: 'Structure Score',
+        label: 'Puntuación de Estructura',
         value: `${resumeData.feedback.structure.score}/100`,
       })
 
       suggestions.push({
         key: 'skills-score',
-        label: 'Skills Score',
+        label: 'Puntuación de Habilidades',
         value: `${resumeData.feedback.skills.score}/100`,
       })
 
       suggestions.push({
         key: 'tone-style-score',
-        label: 'Tone & Style Score',
+        label: 'Puntuación de Tono y Estilo',
         value: `${resumeData.feedback.toneAndStyle.score}/100`,
       })
     }
@@ -82,7 +82,7 @@ const ChatInput = ({ value, onChange, onSend, disabled, resumeData }: ChatInputP
     if (resumeData.jobTitle) {
       suggestions.push({
         key: 'name',
-        label: 'Resume Name',
+        label: 'Nombre del Currículum',
         value: resumeData.jobTitle,
       })
     }
@@ -143,7 +143,7 @@ const ChatInput = ({ value, onChange, onSend, disabled, resumeData }: ChatInputP
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={handleKeyPress}
-          placeholder='you can use # to get suggestions'
+          placeholder='puedes usar # para obtener sugerencias'
           className='flex-1 px-1.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light-green focus:border-transparent placeholder:text-sm'
           disabled={disabled}
         />

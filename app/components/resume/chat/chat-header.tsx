@@ -5,11 +5,11 @@ interface ChatHeaderProps {
 const ChatHeader = ({ onClose }: ChatHeaderProps) => {
   return (
     <div className='bg-light-purple text-dark-200 p-4 rounded-t-lg flex justify-between items-center'>
-      <h3 className='font-semibold'>Resume Assistant</h3>
+      <h3 className='font-semibold'>Asistente de Currículum</h3>
       <button
         onClick={onClose}
         className='text-dark-200 hover:bg-transparent transition-colors p-2 bg-white-200 rounded-full'
-        title='Close chat'
+        title='Cerrar chat'
       >
         <svg className='size-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
           <path
