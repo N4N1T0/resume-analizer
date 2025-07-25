@@ -1,4 +1,7 @@
-import ResumeList from '@/components/home/resume-list'
+import CTA from '@/components/home/cta'
+import FAQ from '@/components/home/faq'
+import Features from '@/components/home/features'
+import Hero from '@/components/home/hero'
 import Navbar from '@/components/layout/navbar'
 
 export function meta() {
@@ -10,16 +13,12 @@ export function meta() {
 
 export default function Home() {
   return (
-    <main className='bg-gradient'>
+    <main className='bg-white-200'>
       <Navbar />
-      <section className='main-section'>
-        <div className='page-heading py-8'>
-          <h1>Track Your Application & Resume Rating</h1>
-          <p>Review your application and Check AI-Powered Feedback</p>
-        </div>
-
-        <ResumeList />
-      </section>
+      <Hero />
+      <Features />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
