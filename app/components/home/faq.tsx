@@ -9,27 +9,26 @@ export default function FAQ() {
   const faqs = [
     {
       id: 'what-is-ats',
-      question: 'What is ATS and why is it important?',
+      question: '¿Qué es ATS y por qué es importante?',
       answer:
-        'ATS (Applicant Tracking System) is software used by employers to filter resumes before human review. Our tool ensures your resume is optimized to pass these systems.',
+        'ATS (Sistema de Seguimiento de Candidatos) es software usado por empleadores para filtrar currículums antes de la revisión humana. Nuestra herramienta asegura que tu currículum esté optimizado para pasar estos sistemas.',
     },
     {
       id: 'how-accurate',
-      question: 'How accurate is the analysis?',
+      question: '¿Qué tan preciso es el análisis?',
       answer:
-        'Our AI-powered analysis is trained on thousands of successful resumes and current industry standards, providing highly accurate feedback and recommendations.',
+        'Nuestro análisis potenciado por IA está entrenado con miles de currículums exitosos y estándares actuales de la industria, proporcionando retroalimentación y recomendaciones altamente precisas.',
     },
     {
       id: 'file-formats',
-      question: 'What file formats are supported?',
-      answer:
-        'We support PDF, DOC, and DOCX file formats. PDF is recommended for the most accurate analysis.',
+      question: '¿Qué formatos de archivo son compatibles?',
+      answer: 'Solo aceptamos archivos en formato PDF para garantizar el análisis más preciso.',
     },
     {
       id: 'data-privacy',
-      question: 'Is my resume data secure?',
+      question: '¿Están seguros los datos de mi currículum?',
       answer:
-        'Yes, we take data privacy seriously. Your resume is processed securely and is not stored on our servers after analysis.',
+        'Tu currículum se almacena temporalmente en nuestros servidores durante el análisis y se elimina automáticamente después de 24 horas. Utilizamos encriptación de datos y seguimos las mejores prácticas de seguridad para proteger tu información.',
     },
   ]
 
@@ -37,7 +36,7 @@ export default function FAQ() {
     <section className='faq-section'>
       <div className='container mx-auto px-4'>
         <h2 className='text-gradient text-4xl font-semibold text-center mb-12'>
-          Frequently Asked Questions
+          Preguntas Frecuentes
         </h2>
         <div className='max-w-3xl mx-auto'>
           <Accordion className='faq-accordion'>

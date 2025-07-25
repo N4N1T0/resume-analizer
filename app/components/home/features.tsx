@@ -16,9 +16,9 @@ export default function Features() {
           />
         </svg>
       ),
-      title: 'ATS Optimization',
+      title: 'Optimización ATS',
       description:
-        'Ensure your resume passes through Applicant Tracking Systems with our advanced scanning technology.',
+        'Asegúrate de que tu currículum pase por los Sistemas de Seguimiento de Candidatos con nuestra tecnología de escaneo avanzada.',
     },
     {
       icon: (
@@ -36,9 +36,9 @@ export default function Features() {
           />
         </svg>
       ),
-      title: 'Instant Analysis',
+      title: 'Análisis Instantáneo',
       description:
-        'Get detailed feedback on your resume within seconds using our AI-powered analysis engine.',
+        'Obtén retroalimentación detallada sobre tu currículum en segundos usando nuestro motor de análisis potenciado por IA.',
     },
     {
       icon: (
@@ -56,9 +56,9 @@ export default function Features() {
           />
         </svg>
       ),
-      title: 'Detailed Insights',
+      title: 'Perspectivas Detalladas',
       description:
-        'Receive comprehensive reports with actionable recommendations to improve your resume.',
+        'Recibe informes completos con recomendaciones accionables para mejorar tu currículum.',
     },
   ]
 
@@ -66,7 +66,7 @@ export default function Features() {
     <section className='features-section'>
       <div className='container mx-auto px-4'>
         <h2 className='text-gradient text-4xl font-semibold text-center mb-12'>
-          Why Choose Our Resume Analyzer?
+          ¿Por Qué Elegir Nuestro Analizador de Currículum?
         </h2>
         <div className='features-grid'>
           {FEATURES.map((feature) => (
