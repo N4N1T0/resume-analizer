@@ -18,20 +18,21 @@ const ResumeList = () => {
     }
   }, [auth.isAuthenticated])
 
+  // HANDLERS
+  const loadResumes = async () => {
+    setIsLoading(true)
+
+    const resume = (await kv.list('resume:*', true)) as KVItem[]
+    const parsedResume = resume
+      ?.filter((resume) => resume.key.split(':').includes(auth?.user?.uuid as string))
+      .map((resume) => JSON.parse(resume.value) as Resume)
+
+    setResumes(parsedResume)
+    setIsLoading(false)
+  }
+
   // EFFECT
   useEffect(() => {
-    const loadResumes = async () => {
-      setIsLoading(true)
-
-      const resume = (await kv.list('resume:*', true)) as KVItem[]
-      const parsedResume = resume
-        ?.filter((resume) => resume.key.split(':').includes(auth?.user?.uuid as string))
-        .map((resume) => JSON.parse(resume.value) as Resume)
-
-      setResumes(parsedResume)
-      setIsLoading(false)
-    }
-
     loadResumes()
   }, [])
 
@@ -60,7 +61,9 @@ const ResumeList = () => {
     <section id='resume-list' className='resumes-section my-8 px-4'>
       {!isLoading &&
         resumes?.length > 0 &&
-        resumes.map((resume) => <ResumeCard resume={resume} key={resume.id} />)}
+        resumes.map((resume) => (
+          <ResumeCard resume={resume} key={resume.id} onDelete={loadResumes} />
+        ))}
     </section>
   )
 }

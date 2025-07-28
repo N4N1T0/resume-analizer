@@ -3,7 +3,7 @@ import { usePuterStore } from '@/lib/client/puter'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-const ResumeCard = ({ resume }: { resume: Resume }) => {
+const ResumeCard = ({ resume, onDelete }: { resume: Resume; onDelete?: () => void }) => {
   // STATE
   const [resumeUrl, setResumeUrl] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
@@ -42,6 +42,11 @@ const ResumeCard = ({ resume }: { resume: Resume }) => {
 
       // Delete from KV store
       await kv.delete(`resume:${id}`)
+      
+      // Trigger reload of resume list
+      if (onDelete) {
+        onDelete()
+      }
     } catch (error) {
       console.error('Failed to delete resume:', error)
       alert('Failed to delete resume. Please try again.')
