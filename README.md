@@ -122,132 +122,132 @@ npm start
 - `npm start` - Start production server
 - `npm run typecheck` - Run TypeScript type checking
 
-## 🔧 Configuración
+## 🔧 Configuration
 
-### Configuración de Vite
+### Vite Configuration
 
-El proyecto utiliza una configuración personalizada de Vite con:
+The project uses a custom Vite configuration with:
 
-- Integración React Router v7
-- Plugin Tailwind CSS v4
-- Mapeo de rutas TypeScript
-- Optimización del worker PDF.js
+- React Router v7 integration
+- Tailwind CSS v4 plugin
+- TypeScript path mapping
+- PDF.js worker optimization
 
-### Configuración de TypeScript
+### TypeScript Configuration
 
-- Modo estricto habilitado
-- Alias de rutas configurados (`@/*` → `./app/*`)
-- Target ES2022 moderno
-- Transformación React JSX
+- Strict mode enabled
+- Path aliases configured (`@/*` → `./app/*`)
+- Modern ES2022 target
+- React JSX transformation
 
 ### Tailwind CSS
 
-- Sistema de diseño personalizado con colores de marca
-- Breakpoints responsivos
-- Animaciones y utilidades personalizadas
-- Enfoque de estilo basado en componentes
+- Custom design system with brand colors
+- Responsive breakpoints
+- Custom animations and utilities
+- Component-based styling approach
 
-## 🎯 Características Principales en Detalle
+## 🎯 Key Features in Detail
 
-### Motor de Análisis de CV
+### Resume Analysis Engine
 
-- **Puntuación Multidimensional**: Evalúa CVs en 4 categorías clave
-- **Optimización ATS**: Proporciona recomendaciones específicas para compatibilidad ATS
-- **Retroalimentación Contextual**: Sugerencias adaptadas basadas en descripción del trabajo y empresa
-- **Puntuación Visual**: Componentes intuitivos de medidor y insignia para visualización de puntuación
+- **Multi-Dimensional Scoring**: Evaluates resumes across 4 key categories
+- **ATS Optimization**: Provides specific recommendations for ATS compatibility
+- **Contextual Feedback**: Tailored suggestions based on job description and company
+- **Visual Scoring**: Intuitive gauge and badge components for score visualization
 
-### Asistente de Chat
+### Chat Assistant
 
-- **Orientación Interactiva**: Sugerencias y mejoras en tiempo real
-- **Consciente del Contexto**: Entiende el contenido del CV y los requisitos del trabajo
-- **Multilingüe**: Soporte completo en español
-- **Historial Persistente**: Mantiene el contexto de la conversación
+- **Interactive Guidance**: Real-time suggestions and improvements
+- **Context-Aware**: Understands resume content and job requirements
+- **Multilingual**: Complete Spanish language support
+- **Persistent History**: Maintains conversation context
 
-### Pipeline de Procesamiento de Archivos
+### File Processing Pipeline
 
-1. **Carga**: Carga segura de archivos con validación
-2. **Conversión**: Conversión de PDF a imagen para análisis
-3. **Almacenamiento**: Almacenamiento cifrado vía Puter.com
-4. **Análisis**: Evaluación de contenido impulsada por IA
-5. **Retroalimentación**: Generación de respuesta estructurada
+1. **Upload**: Secure file upload with validation
+2. **Conversion**: PDF to image conversion for analysis
+3. **Storage**: Encrypted storage via Puter.com
+4. **Analysis**: AI-powered content evaluation
+5. **Feedback**: Structured response generation
 
-## 🔒 Seguridad y Privacidad
+## 🔒 Security and Privacy
 
-- **Almacenamiento Seguro de Archivos**: Todos los archivos cifrados y almacenados de forma segura
-- **Autenticación de Usuario**: Integración de autenticación Puter.com
-- **Privacidad de Datos**: No se almacenan datos sensibles en código del lado del cliente
-- **Validación de Entrada**: Validación integral de formularios y archivos
+- **Secure File Storage**: All files encrypted and stored securely
+- **User Authentication**: Puter.com authentication integration
+- **Data Privacy**: No sensitive data stored in client-side code
+- **Input Validation**: Comprehensive form and file validation
 
-## 🌐 Internacionalización
+## 🌐 Internationalization
 
-La aplicación está completamente localizada en español con:
+The application is fully localized in Spanish with:
 
-- Traducciones de componentes UI
-- Localización de mensajes de error
-- Traducciones de instrucciones de IA
-- Consideraciones de accesibilidad
+- UI component translations
+- Error message localization
+- AI instruction translations
+- Accessibility considerations
 
-## 🧪 Guías de Desarrollo
+## 🧪 Development Guidelines
 
-### Estilo de Código
+### Code Style
 
-- **TypeScript**: Tipado estricto con interfaces comprensivas
-- **Estructura de Componentes**: Componentes funcionales con hooks
-- **Gestión de Estado**: Stores Zustand para estado complejo
-- **Estilos**: Clases de utilidad Tailwind con componentes personalizados
+- **TypeScript**: Strict typing with comprehensive interfaces
+- **Component Structure**: Functional components with hooks
+- **State Management**: Zustand stores for complex state
+- **Styling**: Tailwind utility classes with custom components
 
-### Mejores Prácticas
+### Best Practices
 
-- **Rendimiento**: Carga perezosa y división de código
-- **Accesibilidad**: Etiquetas ARIA y HTML semántico
-- **Manejo de Errores**: Límites de error comprensivos
-- **Pruebas**: Desarrollo type-safe con TypeScript
+- **Performance**: Lazy loading and code splitting
+- **Accessibility**: ARIA labels and semantic HTML
+- **Error Handling**: Comprehensive error boundaries
+- **Testing**: Type-safe development with TypeScript
 
-### Organización de Archivos
+### File Organization
 
-- **Componentes**: Organizados por característica y reutilización
-- **Tipos**: Definiciones de tipos centralizadas
-- **Utilidades**: Funciones de utilidad compartidas
-- **Constantes**: Constantes de toda la aplicación
+- **Components**: Organized by feature and reusability
+- **Types**: Centralized type definitions
+- **Utilities**: Shared utility functions
+- **Constants**: Application-wide constants
 
-## 📈 Optimizaciones de Rendimiento
+## 📈 Performance Optimizations
 
-- **Optimización de Bundle**: Bundling eficiente y tree-shaking de Vite
-- **Optimización de Imágenes**: Conversión optimizada de PDF a imagen
-- **Gestión de Estado**: Stores Zustand eficientes
-- **División de Código**: División de código basada en rutas con React Router
-- **Optimización de Dependencias**: Importaciones selectivas y builds optimizados
+- **Bundle Optimization**: Efficient Vite bundling and tree-shaking
+- **Image Optimization**: Optimized PDF to image conversion
+- **State Management**: Efficient Zustand stores
+- **Code Splitting**: Route-based code splitting with React Router
+- **Dependency Optimization**: Selective imports and optimized builds
 
-## 🤝 Contribuyendo
+## 🤝 Contributing
 
-1. **Fork del repositorio**
-2. **Crear rama de característica**: `git checkout -b feature/caracteristica-increible`
-3. **Commit de cambios**: `git commit -m 'Agregar característica increíble'`
-4. **Push a la rama**: `git push origin feature/caracteristica-increible`
-5. **Abrir Pull Request**
+1. **Fork the repository**
+2. **Create feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit changes**: `git commit -m 'Add amazing feature'`
+4. **Push to branch**: `git push origin feature/amazing-feature`
+5. **Open Pull Request**
 
-### Flujo de Trabajo de Desarrollo
+### Development Workflow
 
-- Seguir las guías de modo estricto TypeScript
-- Mantener documentación de componentes
-- Asegurar compatibilidad de diseño responsivo
-- Probar en diferentes navegadores y dispositivos
+- Follow TypeScript strict mode guidelines
+- Maintain component documentation
+- Ensure responsive design compatibility
+- Test across different browsers and devices
 
 ## 🐳 Docker
 
-El proyecto incluye configuración Docker para despliegue:
+The project includes Docker configuration for deployment:
 
 ```bash
-# Construir imagen Docker
+# Build Docker image
 docker build -t resume-analyzer .
 
-# Ejecutar contenedor
+# Run container
 docker run -p 3000:3000 resume-analyzer
 ```
 
-## 📊 Estructura de Datos
+## 📊 Data Structure
 
-### Modelo de CV
+### Resume Model
 
 ```typescript
 interface ResumeData {
@@ -273,57 +273,57 @@ interface AnalysisFeedback {
 }
 ```
 
-## 🔍 Monitoreo y Logging
+## 🔍 Monitoring and Logging
 
-- **Error Tracking**: Manejo comprensivo de errores con boundaries
-- **Performance Monitoring**: Métricas de rendimiento integradas
-- **User Analytics**: Seguimiento de interacciones de usuario (respetando privacidad)
+- **Error Tracking**: Comprehensive error handling with boundaries
+- **Performance Monitoring**: Built-in performance metrics
+- **User Analytics**: User interaction tracking (privacy-respecting)
 
-## 📱 Compatibilidad
+## 📱 Compatibility
 
-- **Navegadores**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-- **Dispositivos**: Completamente responsivo (móvil, tablet, escritorio)
-- **Accesibilidad**: Cumple con estándares WCAG 2.1 AA
+- **Browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **Devices**: Fully responsive (mobile, tablet, desktop)
+- **Accessibility**: WCAG 2.1 AA standards compliant
 
-## 🚀 Despliegue
+## 🚀 Deployment
 
-### Variables de Entorno de Producción
+### Production Environment Variables
 
 ```env
 NODE_ENV=production
-PUTER_API_KEY=tu_clave_api_produccion
-PUTER_DOMAIN=tu_dominio_puter
+PUTER_API_KEY=your_production_api_key
+PUTER_DOMAIN=your_puter_domain
 ```
 
-### Consideraciones de Despliegue
+### Deployment Considerations
 
-- Configurar HTTPS para producción
-- Implementar rate limiting para APIs
-- Configurar monitoreo de salud
-- Establecer backups automáticos
+- Configure HTTPS for production
+- Implement rate limiting for APIs
+- Set up health monitoring
+- Establish automated backups
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto es privado y propietario. Todos los derechos reservados.
+This project is private and proprietary. All rights reserved.
 
-## 🆘 Soporte
+## 🆘 Support
 
-Para soporte técnico o preguntas:
+For technical support or questions:
 
-- Revisar la documentación del código base
-- Verificar tipos TypeScript para contratos de API
-- Examinar props e interfaces de componentes
-- Consultar documentación de React Router v7 para preguntas de enrutamiento
+- Review the codebase documentation
+- Check TypeScript types for API contracts
+- Examine component props and interfaces
+- Consult React Router v7 documentation for routing questions
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
-- Equipo de React Router por la excelente v7
-- Comunidad de Tailwind CSS por el increíble framework
-- Puter.com por los servicios de almacenamiento y IA
-- Contribuidores de código abierto que hicieron posible este proyecto
+- React Router team for the excellent v7
+- Tailwind CSS community for the amazing framework
+- Puter.com for storage and AI services
+- Open source contributors who made this project possible
 
 ---
 
-**Construido con ❤️ usando React Router v7, TypeScript y tecnologías web modernas**
+**Built with ❤️ using React Router v7, TypeScript, and modern web technologies**
 
-_Última actualización: Enero 2025_
+_Last updated: January 2025_
